@@ -1,0 +1,2 @@
+# This directory is required for the app to work properly
+# Place your app icons and images here
