@@ -14,7 +14,7 @@ export default function App() {
       <SafeAreaProvider>
         <PaperProvider theme={theme}>
           <NavigationContainer>
-            <StatusBar style="light" backgroundColor="#2ECC71" />
+            <StatusBar style="light" />
             <AppNavigator />
           </NavigationContainer>
         </PaperProvider>
