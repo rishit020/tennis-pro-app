@@ -8,37 +8,13 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withSpring,
-} from 'react-native-reanimated';
 import { colors, typography, spacing, shadows } from '../theme/colors';
 
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
-
 export default function AboutScreen() {
-  const scaleValue = useSharedValue(1);
-
-  const handlePressIn = () => {
-    scaleValue.value = withSpring(0.95);
-  };
-
-  const handlePressOut = () => {
-    scaleValue.value = withSpring(1);
-  };
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scaleValue.value }],
-    };
-  });
 
   const AchievementCard = ({ icon, title, description, gradient }) => (
-    <AnimatedTouchableOpacity
-      style={[styles.achievementCard, animatedStyle]}
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
+    <TouchableOpacity
+      style={styles.achievementCard}
       activeOpacity={0.8}
     >
       <LinearGradient
@@ -55,7 +31,7 @@ export default function AboutScreen() {
           <Text style={styles.cardDescription}>{description}</Text>
         </View>
       </LinearGradient>
-    </AnimatedTouchableOpacity>
+    </TouchableOpacity>
   );
 
   const TestimonialCard = ({ name, role, quote, rating }) => (
